@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BNM</title>
+  <link rel="icon" type="image/x-icon"
+        href="https://static.vecteezy.com/system/resources/previews/008/994/746/original/bnm-logo-bnm-letter-bnm-letter-logo-design-initials-bnm-logo-linked-with-circle-and-uppercase-monogram-logo-bnm-typography-for-technology-business-and-real-estate-brand-vector.jpg">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url('https://www.gov.kz/uploads/2022/7/25/89c202db1d1fea0dfd5b68de88dc61be_original.655329.jpg');
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .main-container {
+      padding: 20px;
+      height: 400px;
+      text-align: center;
+    }
+
+    .learnmore {
+      font-size: 30px;
+      font-family: "Papyrus";
+      color: #002966;
+      font-weight: bold;
+      padding-right: 30px;
+      text-align: center;
+    }
+
+    .icon-container {
+      display: inline-block;
+    }
+
+    .promotion-container {
+      background-color: #f0f0f0;
+      padding: 120px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-image: url('https://avatars.mds.yandex.net/i?id=9042491ab5f79fd885e9c7cffb0d22fd4cf844a1-8181844-images-thumbs&n=13');
+      height: 250px;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: "Papyrus", fantasy;
+      background-color: #e60026;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #f9f9f9;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      font-family: Arial, sans-serif;
+      color: #a52a2a;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #promotionsList {
+      list-style: none;
+      padding: 0;
+      background-color: #dcdcdc;
+    }
+
+    #promotionsList li {
+      color: #333;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    #promotionsList li strong {
+      color: #e60026;
+      font-weight: bold;
+    }
+
+    .main-container1 {
+      background-color: #d3d3d3;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+    .info-container {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+      color: #002e63;
+      text-align: center;
+    }
+
+    .avatar-card {
+      display: inline-block;
+      width: 250px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .avatar-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+<body>
+<div class="background"></div>
+<div class="main-container">
+  <p class="learnmore"><b>
+    Learn more about all promotions by clicking on the button below</b>
+    <span>
+        <img src="img_4.png" height="40" width="40"/></span></p>
+  <div class="promotion-container">
+    <button onclick="openPromotionsModal()">PROMOTIONS</button>
+  </div>
+</div>
+<div id="promotionsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closePromotionsModal()">&times;</span>
+    <h2><b>Our promotions</b></h2>
+    <ul id="promotionsList">
+      <li><b>10% off</b> on Summer Tours - Explore exotic destinations with discounted rates!</li>
+      <li>Free Accommodation <strong>Upgrade</strong> - Enjoy a luxury stay at the price of standard accommodation.</li>
+      <li>Buy One Get One <strong>Free</strong> on Selected Activities - Double the fun, pay for one!</li>
+    </ul>
+  </div>
+</div>
+<br>
+
+<div class="main-container1">
+  <div class="info-container">
+    <b>Learn more about our guides by clicking on the pictures below</b>
+  </div>
+  <div class="avatar-card" onclick="openModal('guide1')">
+    <img src="https://avatars.mds.yandex.net/i?id=90848983cf9d853c332b7fac5343fea93d79104c-10128543-images-thumbs&n=13"
+         alt="Guide 1">
+    <p><b>Nargiza S.</b></p>
+  </div>
+  <div class="avatar-card" onclick="openModal('guide2')">
+    <img
+      src="https://avatars.mds.yandex.net/i?id=a129b50e80fb503343d665c47f783f26f0247e3a-11385182-images-thumbs&n=13https://avatars.mds.yandex.net/i?id=a129b50e80fb503343d665c47f783f26f0247e3a-11385182-images-thumbs&n=13"
+      alt="Guide 2">
+    <p><b>Merei Sh.</b></p>
+  </div>
+  <div class="avatar-card" onclick="openModal('guide3')">
+    <img src="https://avatars.mds.yandex.net/i?id=ec34e1f537840d74d17325bb883a6fe0c6905744-10803272-images-thumbs&n=13"
+         alt="Guide 3">
+    <p><b>Begarys K.</b></p>
+  </div>
+</div>
+<div id="guide1Modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('guide1')">&times;</span>
+    <h2>Nargiza Sailaubayeva</h2>
+    <p>
+      Nargiza is an adventurous soul with a passion for history. She's an archaeology graduate who specializes in
+      uncovering ancient relics and loves to intertwine local folklore with her tours. Her charisma and storytelling
+      abilities bring the past to life for her tour groups, making each excursion an immersive journey through time.</p>
+  </div>
+</div>
+
+<div id="guide2Modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('guide2')">&times;</span>
+    <!-- Guide 2 Full Information -->
+    <h2>Merei Shakirova</h2>
+    <p>Merey is a nature enthusiast and a certified wildlife expert. Having spent years exploring the wilderness,
+      Merey's tours focus on the region's diverse ecosystems, showcasing rare flora and fauna. His tours often involve
+      hiking trails and discovering hidden natural wonders.</p>
+  </div>
+</div>
+
+<div id="guide3Modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('guide3')">&times;</span>
+    <!-- Guide 3 Full Information -->
+    <h2>Begarys Kanat</h2>
+    <p>Begarys is a seasoned mountaineer and a cultural anthropologist. His expertise lies in remote,
+      off-the-beaten-path destinations, where he immerses travelers in indigenous cultures and traditional practices.
+      His tours offer a unique blend of adventure and cultural immersion.</p>
+  </div>
+</div>
+<script>
+  function openPromotionsModal() {
+    var modal = document.getElementById('promotionsModal');
+    modal.style.display = "block";
+
+    var promotionsList = document.getElementById('promotionsList');
+    var promotions = [
+      "<strong>10% off</strong> on Summer Tours - Explore exotic destinations with discounted rates!",
+      "Free Accommodation <strong>Upgrade</strong> - Enjoy a luxury stay at the price of standard accommodation.",
+      "Buy One Get One <strong>Free</strong> on Selected Activities - Double the fun, pay for one!"
+    ];
+
+    promotionsList.innerHTML = '';
+    promotions.forEach(function (promotion) {
+      var li = document.createElement('li');
+      li.innerHTML = promotion;
+      promotionsList.appendChild(li);
+    });
+  }
+
+  function closePromotionsModal() {
+    var modal = document.getElementById('promotionsModal');
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    var modals = document.getElementsByClassName('modal');
+    for (var i = 0; i < modals.length; i++) {
+      if (event.target == modals[i]) {
+        modals[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<script>
+  function openModal(guide) {
+    var modal = document.getElementById(guide + 'Modal');
+    modal.style.display = "block";
+  }
+
+  function closeModal(guide) {
+    var modal = document.getElementById(guide + 'Modal');
+    modal.style.display = "none";
+  }
+</script>
+
+
+<div class="chat-logo" onclick="toggleChat()">
+  <img src="img_2.png" alt="Chat Logo">
+</div>
+
+<div class="chat-popup" id="chatPopup">
+  <button onclick="closeChat()" style="background-color: #10AAB8">x</button>
+  <div class="chat-content" id="chatContent">
+    <p>Welcome to the Kazakh Travel Chat! How can we help you explore the beauty of Kazakhstan?</p>
+  </div>
+  <input type="text" id="userInput" placeholder="Type your message..."/>
+  <button onclick="sendMessage()" style="background-color: #10AAB8">Send</button>
+
+</div>
+<style>
+  .chat-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .chat-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 1px solid #ccc;
+    max-width: 300px;
+  }
+
+  .chat-content {
+    background-color: #b3d4fc;
+    color: #10AAB8;
+    max-height: 150px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+
+  .copy {
+    color: darkblue;
+    position: absolute;
+    background: #b3d4fc;
+    width: 1523px;
+    height: 230px;
+    padding-top: 50px;
+    padding-left: 100px;
+  }
+
+
+</style>
+<script>
+  function toggleChat() {
+    var chatPopup = document.getElementById("chatPopup");
+    chatPopup.style.display = (chatPopup.style.display === "block") ? "none" : "block";
+  }
+
+  function closeChat() {
+    document.getElementById("chatPopup").style.display = "none";
+  }
+
+  function sendMessage() {
+    var userInput = document.getElementById("userInput").value;
+    if (userInput.trim() !== "") {
+      var chatContent = document.getElementById("chatContent");
+      chatContent.innerHTML += "<p>You: " + userInput + "</p>";
+      document.getElementById("userInput").value = "";
+    }
+  }
+</script>
+
+<div class="copy">
+  <h3>Our contacts</h3>
+  <br>
+  <ol>
+    <!-- List of links to social media profiles -->
+    <li><h4 style="color: darkblue">&#9745; <a href="https://www.instagram.com/https.b_n_m_">Instagram</a></h4></li>
+    <li><h4 style="color: darkblue">&#9745; <a href="https://mail.google.com/mail/u/">Gmail</a></h4></li>
+    <li><h4 style="color: darkblue">&#9745; <a href="https://t.me/+fQpwMm7N3V4wZDYy">Telegram</a></h4></li>
+  </ol>
+</div>
+</body>
+</html>

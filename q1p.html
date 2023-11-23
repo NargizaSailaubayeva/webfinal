@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://static.vecteezy.com/system/resources/previews/008/994/746/original/bnm-logo-bnm-letter-bnm-letter-logo-design-initials-bnm-logo-linked-with-circle-and-uppercase-monogram-logo-bnm-typography-for-technology-business-and-real-estate-brand-vector.jpg">
+
+  <title>BNM</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://img.goodfon.com/original/1920x1408/7/18/leto-gory-cvety-priroda.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #left, #right{
+    width: 300px;
+    min-height:400px;
+    margin: 20px;
+    border: 2px dashed #190033;
+
+  }
+  .city{
+    background: #004c99;
+    height: 60px;
+    margin: 30px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+  }
+  .city img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #fff;
+
+  }
+
+  .right img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #fff;
+
+  }
+  h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #002966;
+    margin-top: 30px;
+    font-weight: bolder;
+  }
+
+  p {
+    color: #0056b3;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .button-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* To separate the buttons */
+  }
+
+  .previous-container,
+  .next-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button-button button {
+    background-color: #004c99;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  .button-button button:hover {
+    background-color: #002966;
+    color: #ffcc00;
+  }
+
+
+</style>
+<body>
+<h1>Ready to plan your trip?</h1>
+<p>Choose a city to visit:</p>
+<div class="background"></div>
+<div class="options">
+  <div id="left">
+    <div class="city" draggable="true">&#9757;KARAGANDA</div>
+    <div class="city" draggable="true">&#9757;ALMATY</div>
+    <div class="city" draggable="true">&#9757;ASTANA</div>
+    <div class="city" draggable="true">&#9757;ORAL</div>
+    <div class="city" draggable="true">&#9757;AQTAU</div>
+    <div class="city" draggable="true">&#9757;AQTOBE</div>
+    <div class="city" draggable="true">&#9757;ATYRAU</div>
+    <div class="city" draggable="true">&#9757;QOSTANAI</div>
+  </div>
+  <div id="right"><img src="img.png" style="height: 300px; width: 300px; opacity: 0.5" ></div>
+</div>
+<div class="button-button">
+  <div class="previous-container">
+    <form action="quiz.html">
+      <button onclick="quiz.html">Previous</button>
+    </form>
+  </div>
+  <div class="next-container">
+    <form action="q2p.html">
+      <button onclick="q2p.html">Next</button>
+    </form>
+  </div>
+</div>
+<script>
+  let cities = document.getElementsByClassName("city");
+  let rightBox = document.getElementById("right");
+  let leftBox = document.getElementById("left");
+  for(city of cities){
+    city.addEventListener("dragstart", function(e){
+      let selected = e.target;
+      rightBox.addEventListener("dragover", function(e){
+        e.preventDefault();
+      });
+      rightBox.addEventListener("drop", function(e){
+        rightBox.appendChild(selected);
+        selected = null;
+      });
+      leftBox.addEventListener("dragover", function(e){
+        e.preventDefault();
+      });
+      leftBox.addEventListener("drop", function(e){
+        leftBox.appendChild(selected);
+        selected = null;
+      });
+    });
+  }
+</script>
+
+<div class="chat-logo" onclick="toggleChat()">
+  <img src="img_2.png" alt="Chat Logo">
+</div>
+
+<div class="chat-popup" id="chatPopup">
+  <button onclick="closeChat()" style="background-color: #10AAB8">x</button>
+  <div class="chat-content" id="chatContent">
+    <p>Welcome to the Kazakh Travel Chat! How can we help you explore the beauty of Kazakhstan?</p>
+  </div>
+  <input type="text" id="userInput" placeholder="Type your message..." />
+  <button onclick="sendMessage()" style="background-color: #10AAB8">Send</button>
+
+</div>
+<style>
+  .chat-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .chat-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 1px solid #ccc;
+    max-width: 300px;
+  }
+
+  .chat-content {
+    background-color: #b3d4fc;
+    color: #10AAB8;
+    max-height: 150px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+
+
+</style>
+<script >
+  function toggleChat() {
+    var chatPopup = document.getElementById("chatPopup");
+    chatPopup.style.display = (chatPopup.style.display === "block") ? "none" : "block";
+  }
+
+  function closeChat() {
+    document.getElementById("chatPopup").style.display = "none";
+  }
+
+  function sendMessage() {
+    var userInput = document.getElementById("userInput").value;
+    if (userInput.trim() !== "") {
+      var chatContent = document.getElementById("chatContent");
+      chatContent.innerHTML += "<p>You: " + userInput + "</p>";
+      document.getElementById("userInput").value = "";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://static.vecteezy.com/system/resources/previews/008/994/746/original/bnm-logo-bnm-letter-bnm-letter-logo-design-initials-bnm-logo-linked-with-circle-and-uppercase-monogram-logo-bnm-typography-for-technology-business-and-real-estate-brand-vector.jpg">
+  <title>BNM</title>
+</head>
+<body>  <input type="number" class="time">
+<button type="submit" onclick="startCountdown()">Start</button>
+<button type="reset" onclick="resetCountdown()">Reset</button>
+<p class="countdown"></p>
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-sm " style="background-color: #10AAB8">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="tma.html" style="color: #fcc06e">BNM</a>
+
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="tma.html" style="color: #fcc06e"> Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#yakor" style="color: #fcc06e">Atyrau</a></li>
+      <li class="nav-item"><a class="nav-link" href="#yakor2" style="color: #fcc06e">Kostanai</a></li>
+      <li class="nav-item">  <a href="#buynow" class="buton nav-link" style="background-color: #b3d4fc"><span>Buy now</span></a></li>
+      <li class="nav-item">
+        <!-- Dropdown menu for travel links -->
+        <div class="dropdown">
+          <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">Travel
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"
+                   href="tma.html">Main</a>
+            <li><a class="dropdown-item"
+                   href="Page1.html">Page1</a>
+            </li>
+            <li><a class="dropdown-item"
+                   href="Page2.html">Page
+              2</a></li>
+            <li><a class="dropdown-item"
+                   href="Page3.html">Page
+              3</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script src="scriptt.js"></script>
+
+<div class="mb-3">
+  <div class="container">
+
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- Carousel indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://kasta.ua/imgw/loc/0x0/s3/brand-logo/25130/default_e965afb2-43cd-48bf-850d-6ffe9d1c20fb.png"
+               class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+          <img src="https://1.bp.blogspot.com/-15HzgzuEpVE/WFgBtpDiR7I/AAAAAAAAAuc/ZffZpS6YE9ksD-SKMiyd0WliU4sfVjjrACLcB/s1600/atyrau-ucak-bileti.jpg"
+               class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+          <img src="https://qagro.files.wordpress.com/2018/09/1a603123-67cd-4b05-affd-0ce94b64ba86-1456-00000166ddaa28c2.jpg"  class="d-block"
+               style="width:100%">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="search-bar-container active">
+  <img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/magnifier-256.png" class="magnifier" alt="magnifier">
+  <input type="text" class="input" placeholder="Search...">
+  <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-25-256.png" class='mic-icon' alt="mic-icon">
+</div>
+<!-- Add the following script to your existing code -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const magnifier = document.querySelector('.magnifier');
+    const searchEl = document.querySelector('.search-bar-container');
+    const inputEl = document.querySelector('.input');
+    const mic = document.querySelector('.mic-icon');
+
+    magnifier.addEventListener('click', () => {
+      searchEl.classList.toggle('active');
+      if (searchEl.classList.contains('active')) {
+        inputEl.focus();
+      }
+    });
+
+    inputEl.addEventListener('input', function () {
+      search();
+    });
+
+    function search() {
+      const searchTerm = inputEl.value.toLowerCase();
+      const sections = document.querySelectorAll('h6');
+
+      sections.forEach((section) => {
+        const sectionText = section.textContent.toLowerCase();
+        if (sectionText.includes(searchTerm)) {
+          highlight(section);
+          scrollIntoView(section);
+        } else {
+          removeHighlight(section);
+        }
+      });
+    }
+
+    function highlight(element) {
+      element.classList.add('highlight');
+    }
+
+    function removeHighlight(element) {
+      element.classList.remove('highlight');
+    }
+
+    function scrollIntoView(element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  });
+</script>
+
+
+<style>
+
+  .search-bar-container{
+    display: flex;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 5px;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), -6px -6px 10px rgba(255, 255, 255, 0.7);
+    margin: 10px;
+    position: relative;
+    transition: width 1.5s;
+  }
+
+  .magnifier{
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px
+  }
+
+  .mic-icon{
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    transition: width 0.4s;
+    transition-delay: 1s;
+  }
+
+  .input{
+    background-color: transparent;
+    border: none;
+    margin: 10px 50px;
+    width: 100%;
+    outline: none;
+    color: rgb(100, 100, 100);
+    transition: width 1s;
+    transition-delay: 0.5s;
+  }
+
+  .active.search-bar-container{
+    width: 50px;
+  }
+
+  .active .input{
+    width: 0;
+  }
+
+  .active .mic-icon{
+    width: 0;
+  }
+
+</style>
+<hr>
+<!-- The container for the tab buttons -->
+<div id="tabs">
+  <button id="tab1" class="tab-button">Kostanai</button>
+  <button id="tab2" class="tab-button">Atyrau</button>
+</div>
+<!-- The container for the tab content -->
+<div id="content">
+  <div id="tab-content-1" class="tab-content" style="color:#fcc06e">Atyrau is a city in Kazakhstan and the capital of Atyrau Region</div>
+  <div id="tab-content-2" class="tab-content" style="color:#fcc06e">Kostanay Region is a region of Kazakhstan.</div>
+</div>
+<hr>
+<button class="accordion" id="kostanai">Kostanai</button>
+<div class="panel">
+  <p id="kostanai-description"></p>
+</div>
+
+<button class="accordion" id="atyrau">Atyrau</button>
+<div class="panel">
+  <p id="atyrau-description"></p>
+</div>
+
+<script>
+  var cities = {
+    "kostanai": "Kostanay was founded by Russian settlers in 1879 and named Nikolaevsk, in honor of Tsar Nicholas II. In 1888, the town had more than 3,000 inhabitants.",
+    "atyrau": "Atyrau is a transcontinental city, at the mouth of the Ural River on the Caspian Sea, between Europe and Asia, 2,700 kilometers (1,700 miles) west of Almaty."
+  };
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      var cityId = this.id;
+      var descriptionElement = document.getElementById(cityId + "-description");
+
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+        panel.innerHTML = "<p>" + cities[cityId] + "</p>";
+      }
+    });
+  }
+  // Get all tab buttons and tab contents
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+  // Add a click event listener to each tab button
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      // Hide all tab contents
+      tabContents.forEach(content => content.style.display = 'none');
+      // Show the selected tab content
+      tabContents[index].style.display = 'block';
+    });
+  });
+
+</script>
+<!-- Content for Kyzylorda with an image and information -->
+<div id="yakor2"></div>
+<section class="sec-1 show-animate">
+  <div class="mb-3">
+    <div class="container animate" style="background-color: lightblue">
+      <div class="row">
+        <div class="col-md-6 animate">
+          <h6>
+            <!-- List of Kostanay Attractions -->
+            <ul class="list-group">
+              <li class="list-group-item" data-id="1" style="background-color: #10AAB8; color:white">Central Squar</li>
+              <li class="list-group-item" data-id="2" style="background-color: #10AAB8; color:white">Gorky Park</li>
+              <li class="list-group-item" data-id="3"style="background-color: #10AAB8; color:white">Ivan Susanin House Museum</li>
+            </ul>
+          </h6>
+          <div class="attraction-description">
+            <p class="attraction-text"></p>
+          </div>
+        </div>
+        <div class="col-md-6 animate">
+          <div class="card">
+            <img class="card-img-top" src="https://wikiway.com/upload/uf/3ff/kostanayi_54.jpg" width="80%" height="95%">
+            <div class="card-body" style="background-color: lightblue">
+              <button class="btn btn-info">Kostanay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const attractions = {
+      1: "Central Square: This is the heart of the city with a monument to Mickiewicz and the Regional Administration building.",
+      2: "Gorky Park: One of the oldest parks in Kazakhstan with amusements and attractions.",
+      3: "Ivan Susanin House Museum: A museum dedicated to the Russian folk hero Ivan Susanin."
+    };
+
+    const listItems = document.querySelectorAll(".list-group-item");
+    const attractionText = document.querySelector(".attraction-text");
+
+    listItems.forEach(item => {
+      item.addEventListener("mouseover", () => {
+        const attractionId = item.getAttribute("data-id");
+        attractionText.textContent = attractions[attractionId];
+      });
+
+      item.addEventListener("mouseout", () => {
+        attractionText.textContent = "";
+      });
+    });
+  </script>
+</section>
+
+<!-- Content for Atyrau with an image and information -->
+<div id="yakor"></div>
+<section class="sec-2">
+<div class="container animate" style="background-color: lightblue">
+  <div class="row">
+    <div class="col-md-6 animate">
+      <h6>
+        <ul class="list-group">
+          <li class="list-group-item" data-id="1"  style="background-color: #10AAB8; color:white">Kenesary Khan Monument</li>
+          <li class="list-group-item" data-id="2"  style="background-color: #10AAB8; color:white">Atyrau Regional History Museum</li>
+          <li class="list-group-item" data-id="3"  style="background-color: #10AAB8; color:white">Atyrau Botanical Garden</li>
+        </ul>
+      </h6>
+      <div class="attraction-descriptionAtyrau">
+        <p class="attraction-textAtyrau"></p>
+      </div>
+      <script>
+        const attractionsAtyrau = {
+          1: "Kenesary Khan Monument: This monument is dedicated to Kenesary Khan, a Kazakh military leader and statesman from the 19th century. It's a symbol of Kazakh national pride and history.",
+          2: "Atyrau Regional History Museum: This museum provides insights into the history and culture of the Atyrau region. It's a great place to learn about the area's heritage and traditions.",
+          3: "Atyrau Botanical Garden: Located in the city, this botanical garden features a variety of plant species, making it a peaceful place for a leisurely walk and some relaxation."
+        };
+
+        const listItemsAtyrau = document.querySelectorAll(".list-group-item");
+        const attractionTextAtyrau = document.querySelector(".attraction-textAtyrau");
+
+        listItemsAtyrau.forEach(item => {
+          item.addEventListener("mouseover", () => {
+            const attractionId = item.getAttribute("data-id");
+            attractionTextAtyrau.textContent = attractionsAtyrau[attractionId];
+          });
+
+          item.addEventListener("mouseout", () => {
+            attractionTextAtyrau.textContent = "";
+          });
+        });
+      </script>
+
+    </div>
+    <div class="col-md-6 animate">
+      <div class="card"><img src="https://tengrinews.kz/userdata/news/2020/news_397632/thumb_m/photo_315433.jpeg">
+        <div class="card-body" style="background-color: lightblue">
+          <button class="btn btn-info" id="playSoundButton">Atyrau</button>
+          <script>
+            var audio = new Audio('aytrau.mp3');
+
+            document.getElementById('playSoundButton').addEventListener('click', function() {
+              audio.play();
+            });
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Container for displaying advantages -->
+<div class="bebe1">
+  <p class="bebe" style="background-color: white; color: #0056b3;font-weight: bold; opacity: 0.8">Our motto</p></div>
+<div class="advantage-container">
+  <div class="advantage">
+    <div class="icon fast-icon"></div>
+    <h3 style="color: #0056b3; justify-content: center; text-align: center; align-items: center;font-weight: bold">Quick</h3>
+    <p style="color: #0056b3 ">We will organize your trip quickly and without unnecessary hassle.</p>
+  </div>
+  <div class="advantage">
+    <div class="icon convenient-icon"></div>
+    <h3 style="color: #0056b3; justify-content: center; text-align: center; align-items: center;font-weight: bold">Comfort</h3>
+    <p style="color: #0056b3;">We provide convenient options for choosing a location and hotel.</p>
+  </div>
+  <div class="advantage">
+    <div class="icon safe-icon"></div>
+    <h3 style=" color: #0056b3; justify-content: center; text-align: center; align-items: center;font-weight: bold">Safe</h3>
+    <p style="color: #0056b3;">Your safety is our priority. We take care of you on your journey.</p>
+  </div>
+  <div class="advantage">
+    <div class="icon affordable-icon"></div>
+    <h3 style="color: #0056b3; justify-content: center; text-align: center; align-items: center;font-weight: bold">Cheap</h3>
+    <p style="color: #0056b3;">Our prices are always favorable and affordable. Save with us!</p>
+  </div>
+</div>
+<div id="buynow"></div>
+<!-- User input form -->
+<div class="container">
+  <form id="myForm" onsubmit="return validateForm()">
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"><span id="emailError" class="error"></span>
+    </div>
+    <div class="mb-3">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"><span id="passwordError" class="error"></span>
+    </div>
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+      </label>
+    </div>
+    <div class="mb-3">
+      <label for="comment">Comments:</label>
+      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="myBtn" data-bs-toggle="tooltip" title="Hooray!">Submit</button>
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    // Reset error messages
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+
+    // Get the form input values
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("pwd").value;
+
+    // Create a regular expression to validate email
+    var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    // Perform validation
+    var valid = true;
+    if (!email.match(emailRegex)) {
+      document.getElementById("emailError").innerHTML = "Invalid email address";
+      valid = false;
+    }
+    if (password.trim() === "") {
+      document.getElementById("passwordError").innerHTML = "Password is required";
+      valid = false;
+    }
+    if (!valid) {
+      return false;
+    } else {
+      // If the form is valid, change the button text to "Submitted"
+      const button = document.getElementById('myBtn');
+      button.textContent = 'Submitted!';
+      alert("Your message is  saved")
+
+      button.disabled = true; // Disable the button to prevent further submissions
+
+
+      setTimeout(function() {
+        document.getElementById('myForm').submit();
+      }, 3000);
+
+      return false; // Prevent immediate form submission
+    }
+  }
+</script>
+<hr>
+
+
+<div class="chat-logo" onclick="toggleChat()">
+  <img src="img_2.png" alt="Chat Logo">
+</div>
+
+<div class="chat-popup" id="chatPopup">
+  <button onclick="closeChat()" style="background-color: #10AAB8">x</button>
+  <div class="chat-content" id="chatContent">
+    <p>Welcome to the Kazakh Travel Chat! How can we help you explore the beauty of Kazakhstan?</p>
+  </div>
+  <input type="text" id="userInput" placeholder="Type your message..." />
+  <button onclick="sendMessage()" style="background-color: #10AAB8">Send</button>
+
+</div>
+<style>
+  .chat-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .chat-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 1px solid #ccc;
+    max-width: 300px;
+  }
+
+  .chat-content {
+    background-color: #b3d4fc;
+    color: #10AAB8;
+    max-height: 150px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+
+
+</style>
+<script >
+  function toggleChat() {
+    var chatPopup = document.getElementById("chatPopup");
+    chatPopup.style.display = (chatPopup.style.display === "block") ? "none" : "block";
+  }
+
+  function closeChat() {
+    document.getElementById("chatPopup").style.display = "none";
+  }
+
+  function sendMessage() {
+    var userInput = document.getElementById("userInput").value;
+    if (userInput.trim() !== "") {
+      var chatContent = document.getElementById("chatContent");
+      chatContent.innerHTML += "<p>You: " + userInput + "</p>";
+      document.getElementById("userInput").value = "";
+    }
+  }
+</script>
+
+<script src="anima.js"></script>
+</body>
+</html>
